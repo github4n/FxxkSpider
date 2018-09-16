@@ -1,4 +1,4 @@
-import { getGoodsList } from "./core/services/goods";
+import { getGoodsList } from "./core/services";
 
 getGoodsList()
     .then(data => console.log(data));

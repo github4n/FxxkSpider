@@ -509,15 +509,39 @@ eval("\nconst os = __webpack_require__(/*! os */ \"os\");\nconst hasFlag = __web
 
 /***/ }),
 
-/***/ "./src/core/services/goods.ts":
+/***/ "./src/core/services/buff/goods.ts":
+/*!*****************************************!*\
+  !*** ./src/core/services/buff/goods.ts ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst axios_1 = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\nexports.getGoodsList = async (gameName = 'csgo', pageNum = 1) => {\n    const res = await axios_1.default.get(`https://buff.163.com/api/market/goods?game=${gameName}&page_num=${pageNum}`);\n    return res.data;\n};\nexports.getGoodsDetail = async (goods_id) => {\n    const res = await axios_1.default.get(`https://buff.163.com/market/goods?goods_id=${goods_id}`);\n    return res.data;\n};\n\n\n//# sourceURL=webpack:///./src/core/services/buff/goods.ts?");
+
+/***/ }),
+
+/***/ "./src/core/services/buff/index.ts":
+/*!*****************************************!*\
+  !*** ./src/core/services/buff/index.ts ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nfunction __export(m) {\n    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./goods */ \"./src/core/services/buff/goods.ts\"));\n\n\n//# sourceURL=webpack:///./src/core/services/buff/index.ts?");
+
+/***/ }),
+
+/***/ "./src/core/services/index.ts":
 /*!************************************!*\
-  !*** ./src/core/services/goods.ts ***!
+  !*** ./src/core/services/index.ts ***!
   \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst axios_1 = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\nexports.getGoodsList = async (gameName = 'csgo', pageNum = 1) => {\n    const res = await axios_1.default.get(`https://buff.163.com/api/market/goods?game=${gameName}&page_num=${pageNum}`);\n    return res.data;\n};\n\n\n//# sourceURL=webpack:///./src/core/services/goods.ts?");
+eval("\nfunction __export(m) {\n    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./buff */ \"./src/core/services/buff/index.ts\"));\n\n\n//# sourceURL=webpack:///./src/core/services/index.ts?");
 
 /***/ }),
 
@@ -529,7 +553,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst goods_1 = __webpack_require__(/*! ./core/services/goods */ \"./src/core/services/goods.ts\");\ngoods_1.getGoodsList()\n    .then(data => console.log(data));\n\n\n//# sourceURL=webpack:///./src/index.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst services_1 = __webpack_require__(/*! ./core/services */ \"./src/core/services/index.ts\");\nservices_1.getGoodsList()\n    .then(data => console.log(data));\n\n\n//# sourceURL=webpack:///./src/index.ts?");
 
 /***/ }),
 
