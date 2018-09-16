@@ -11,6 +11,9 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "@types/koa": "^2.0.46",
+    "@types/koa-bodyparser": "^5.0.1",
+    "@types/koa-router": "^7.0.31",
     "cross-env": "^5.2.0",
     "decent-messup": "^1.0.8",
     "ts-loader": "^5.1.0",
@@ -19,9 +22,16 @@
     "typescript": "^3.0.3",
     "uglifyjs-webpack-plugin": "^1.3.0",
     "webpack": "^4.19.0",
-    "webpack-cli": "^3.1.0"
+    "webpack-cli": "^3.1.0",
+    "yarn": "^1.9.4"
   },
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "koa": "^2.5.3",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "reflect-metadata": "^0.1.12",
+    "routing-controllers": "^0.7.7",
+    "typeorm": "^0.2.7"
   }
 }
