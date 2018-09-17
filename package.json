@@ -5,7 +5,8 @@
   "repository": "https://github.com/Lurance/FxxkSpider.git",
   "author": "Sammy",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack --config config/webpack.config.dev.js && node dist/core.js",
+    "watch": "cross-env NODE_ENV=development webpack --config config/webpack.config.dev.js --watch",
+    "start": "nodemon dist/core.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.config.prod.js"
   },
   "license": "MIT",
@@ -16,6 +17,7 @@
     "@types/koa-router": "^7.0.31",
     "cross-env": "^5.2.0",
     "decent-messup": "^1.0.8",
+    "nodemon": "^1.18.4",
     "ts-loader": "^5.1.0",
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
