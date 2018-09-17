@@ -98,6 +98,42 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 
 /***/ }),
 
+/***/ "./src/http/config/config.dev.ts":
+/*!***************************************!*\
+  !*** ./src/http/config/config.dev.ts ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.default = {\n    name: \"development\",\n    PORT: 9998,\n};\n\n\n//# sourceURL=webpack:///./src/http/config/config.dev.ts?");
+
+/***/ }),
+
+/***/ "./src/http/config/config.prod.ts":
+/*!****************************************!*\
+  !*** ./src/http/config/config.prod.ts ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.default = {\n    name: \"production\",\n    PORT: 9999,\n};\n\n\n//# sourceURL=webpack:///./src/http/config/config.prod.ts?");
+
+/***/ }),
+
+/***/ "./src/http/config/index.ts":
+/*!**********************************!*\
+  !*** ./src/http/config/index.ts ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst config_dev_1 = __webpack_require__(/*! ./config.dev */ \"./src/http/config/config.dev.ts\");\nconst config_prod_1 = __webpack_require__(/*! ./config.prod */ \"./src/http/config/config.prod.ts\");\nconst config =  true ? config_dev_1.default : undefined;\nexports.default = config;\n\n\n//# sourceURL=webpack:///./src/http/config/index.ts?");
+
+/***/ }),
+
 /***/ "./src/http/index.ts":
 /*!***************************!*\
   !*** ./src/http/index.ts ***!
@@ -118,7 +154,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst http_1 = __webpack_require__(/*! ./http */ \"./src/http/index.ts\");\n(async () => {\n    try {\n        const app = await http_1.createHttpServer();\n        console.log(\"development\");\n        const server = app.listen(9999, () => {\n            console.log(`Server is listening on 9999`);\n        });\n    }\n    catch (e) {\n        console.log(e);\n        process.exit(1);\n    }\n})();\n\n\n//# sourceURL=webpack:///./src/index.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst http_1 = __webpack_require__(/*! ./http */ \"./src/http/index.ts\");\nconst config_1 = __webpack_require__(/*! ./http/config */ \"./src/http/config/index.ts\");\n(async () => {\n    try {\n        const app = await http_1.createHttpServer();\n        const server = app.listen(config_1.default.PORT, () => {\n            console.log(`Server is listening on ${config_1.default.PORT}`);\n        });\n    }\n    catch (e) {\n        console.log(e);\n        process.exit(1);\n    }\n})();\n\n\n//# sourceURL=webpack:///./src/index.ts?");
 
 /***/ }),
 

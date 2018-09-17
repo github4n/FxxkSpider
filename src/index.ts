@@ -1,11 +1,11 @@
 import { createHttpServer } from "./http";
+import config from "./http/config";
 
 (async () => {
     try {
         const app = await createHttpServer();
-        console.log(process.env.NODE_ENV);
-        const server = app.listen(9999, () => {
-            console.log(`Server is listening on 9999`);
+        const server = app.listen(config.PORT, () => {
+            console.log(`Server is listening on ${config.PORT}`);
         });
     } catch (e) {
         console.log(e);
