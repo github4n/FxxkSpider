@@ -19,6 +19,15 @@ module.exports = {
     __dirname: true,
     setImmediate: true
   },
+  externals: function () {
+    let manifest = require(paths.packageJson);
+    let dependencies = manifest.dependencies;
+    let externals = {};
+    for (let p in dependencies) {
+        externals[p] = 'commonjs ' + p;
+    }
+    return externals;
+  }(),
   module: {
     rules: [
       {

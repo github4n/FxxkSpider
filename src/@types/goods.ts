@@ -1,4 +1,4 @@
-export interface Goods {
+export interface IGoods {
     id: number;
     name: string;
     sell_min_price: number;
