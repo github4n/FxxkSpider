@@ -5,8 +5,9 @@
   "repository": "https://github.com/Lurance/FxxkSpider.git",
   "author": "Sammy",
   "scripts": {
-    "watch": "cross-env NODE_ENV=development webpack --config config/webpack.config.dev.js --watch",
-    "start": "nodemon dist/core.js",
+    "watch:http": "cross-env NODE_ENV=development webpack --config config/webpack.config.dev.js --watch --buildType node",
+    "start:http": "nodemon dist/core.js",
+    "start:page": "cross-env NODE_ENV=development webpack --config config/webpack.config.dev.js --watch --buildType web",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.config.prod.js"
   },
   "license": "MIT",
@@ -15,8 +16,13 @@
     "@types/koa": "^2.0.46",
     "@types/koa-bodyparser": "^5.0.1",
     "@types/koa-router": "^7.0.31",
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.7",
+    "babel-loader": "^8.0.2",
     "cross-env": "^5.2.0",
     "decent-messup": "^1.0.8",
+    "html-webpack-plugin": "^3.2.0",
+    "minimist": "^1.2.0",
     "nodemon": "^1.18.4",
     "ts-loader": "^5.1.0",
     "ts-node": "^7.0.1",
@@ -32,8 +38,13 @@
     "koa": "^2.5.3",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
+    "object-assign": "^4.1.1",
+    "promise": "^8.0.2",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
     "reflect-metadata": "^0.1.12",
     "routing-controllers": "^0.7.7",
-    "typeorm": "^0.2.7"
+    "typeorm": "^0.2.7",
+    "whatwg-fetch": "^3.0.0"
   }
 }
