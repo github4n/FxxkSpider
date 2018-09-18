@@ -86,90 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/core/apis/buff.ts":
-/*!*******************************!*\
-  !*** ./src/core/apis/buff.ts ***!
-  \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst services_1 = __webpack_require__(/*! ../services */ \"./src/core/services/index.ts\");\nconst helpers_1 = __webpack_require__(/*! ../helpers */ \"./src/core/helpers/index.ts\");\nexports.getGoodsListFromPage = async (gameName = \"csgo\", startPage = 1, endPage, ms) => {\n    let res = [];\n    for (let nowPage = startPage; nowPage <= endPage; nowPage++) {\n        const goodsList = await services_1.getGoodsList(gameName, nowPage);\n        res = [...res, ...goodsList.data.items];\n        nowPage = nowPage + 1;\n        await helpers_1.sleep(ms);\n    }\n    return res;\n};\n\n\n//# sourceURL=webpack:///./src/core/apis/buff.ts?");
-
-/***/ }),
-
-/***/ "./src/core/apis/index.ts":
-/*!********************************!*\
-  !*** ./src/core/apis/index.ts ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nfunction __export(m) {\n    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./buff */ \"./src/core/apis/buff.ts\"));\n\n\n//# sourceURL=webpack:///./src/core/apis/index.ts?");
-
-/***/ }),
-
-/***/ "./src/core/helpers/index.ts":
-/*!***********************************!*\
-  !*** ./src/core/helpers/index.ts ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nfunction __export(m) {\n    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./sleep */ \"./src/core/helpers/sleep.ts\"));\n\n\n//# sourceURL=webpack:///./src/core/helpers/index.ts?");
-
-/***/ }),
-
-/***/ "./src/core/helpers/sleep.ts":
-/*!***********************************!*\
-  !*** ./src/core/helpers/sleep.ts ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.sleep = (ms) => new Promise((resolve) => {\n    setTimeout(() => resolve(), ms);\n});\n\n\n//# sourceURL=webpack:///./src/core/helpers/sleep.ts?");
-
-/***/ }),
-
-/***/ "./src/core/services/buff/goods.ts":
-/*!*****************************************!*\
-  !*** ./src/core/services/buff/goods.ts ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst axios_1 = __webpack_require__(/*! axios */ \"axios\");\nexports.getGoodsList = async (gameName, pageNum) => {\n    const res = await axios_1.default.get(`https://buff.163.com/api/market/goods?game=${gameName}&page_num=${pageNum}`);\n    return res.data;\n};\n\n\n//# sourceURL=webpack:///./src/core/services/buff/goods.ts?");
-
-/***/ }),
-
-/***/ "./src/core/services/buff/index.ts":
-/*!*****************************************!*\
-  !*** ./src/core/services/buff/index.ts ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nfunction __export(m) {\n    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./goods */ \"./src/core/services/buff/goods.ts\"));\n\n\n//# sourceURL=webpack:///./src/core/services/buff/index.ts?");
-
-/***/ }),
-
-/***/ "./src/core/services/index.ts":
-/*!************************************!*\
-  !*** ./src/core/services/index.ts ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nfunction __export(m) {\n    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];\n}\nObject.defineProperty(exports, \"__esModule\", { value: true });\n__export(__webpack_require__(/*! ./buff */ \"./src/core/services/buff/index.ts\"));\n\n\n//# sourceURL=webpack:///./src/core/services/index.ts?");
-
-/***/ }),
-
 /***/ "./src/http/app.ts":
 /*!*************************!*\
   !*** ./src/http/app.ts ***!
@@ -238,18 +154,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst http_1 = __webpack_require__(/*! ./http */ \"./src/http/index.ts\");\nconst config_1 = __webpack_require__(/*! ./http/config */ \"./src/http/config/index.ts\");\nconst apis_1 = __webpack_require__(/*! ./core/apis */ \"./src/core/apis/index.ts\");\n(async () => {\n    try {\n        const app = await http_1.createHttpServer();\n        app.listen(config_1.default.PORT, async () => {\n            console.log(`Server is listening on ${config_1.default.PORT}`);\n            console.log(await apis_1.getGoodsListFromPage(\"csgo\", 1, 10, 1000));\n        });\n    }\n    catch (e) {\n        console.log(e);\n        process.exit(1);\n    }\n})();\n\n\n//# sourceURL=webpack:///./src/index.ts?");
-
-/***/ }),
-
-/***/ "axios":
-/*!************************!*\
-  !*** external "axios" ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = require(\"axios\");\n\n//# sourceURL=webpack:///external_%22axios%22?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst http_1 = __webpack_require__(/*! ./http */ \"./src/http/index.ts\");\nconst config_1 = __webpack_require__(/*! ./http/config */ \"./src/http/config/index.ts\");\n(async () => {\n    try {\n        const app = await http_1.createHttpServer();\n        app.listen(config_1.default.PORT, async () => {\n            console.log(`Server is listening on ${config_1.default.PORT}`);\n        });\n    }\n    catch (e) {\n        console.log(e);\n        process.exit(1);\n    }\n})();\n\n\n//# sourceURL=webpack:///./src/index.ts?");
 
 /***/ }),
 
