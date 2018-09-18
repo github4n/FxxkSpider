@@ -32,7 +32,7 @@ class NavBar extends React.Component<{ classes: any, notificationNum?: number }>
                             <MenuIcon />
                         </IconButton>
                         <Typography variant="title" color="inherit" className={classes.grow}>
-                            Spider
+                            Awesome Spider
                         </Typography>
                         <IconButton >
                             <Badge badgeContent={notificationNum} color="secondary">
