@@ -15,7 +15,7 @@ export interface IBuffGoodsItem {
     name: string;
     sell_min_price: string;
     sell_num: number;
-    steam_market_url: number;
+    steam_market_url: string;
     goods_info: {
         icon_url: string;
         steam_price: string;

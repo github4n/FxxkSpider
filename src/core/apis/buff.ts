@@ -1,4 +1,4 @@
-import { getGoodsList } from "../services";
+import { getGoodsList, parseGoodsList } from "../services";
 import { sleep } from "../helpers";
 
 export const getGoodsListFromPage = async (gameName= "csgo", startPage: number = 1, endPage: number, ms: number) => {
@@ -10,6 +10,8 @@ export const getGoodsListFromPage = async (gameName= "csgo", startPage: number =
         nowPage = nowPage + 1;
         await sleep(ms);
     }
+
+    res = parseGoodsList(res);
 
     return res;
 };
