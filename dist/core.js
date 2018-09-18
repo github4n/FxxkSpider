@@ -94,7 +94,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Koa = __webpack_require__(/*! koa */ \"koa\");\n__webpack_require__(/*! reflect-metadata */ \"reflect-metadata\");\nconst routing_controllers_1 = __webpack_require__(/*! routing-controllers */ \"routing-controllers\");\nconst createHttpServer = async () => {\n    const koa = new Koa();\n    routing_controllers_1.useKoaServer(koa, {\n        routePrefix: \"/api\",\n        controllers: [],\n        classTransformer: false,\n    });\n    return koa;\n};\nexports.default = createHttpServer;\n\n\n//# sourceURL=webpack:///./src/http/app.ts?");
+eval("/* WEBPACK VAR INJECTION */(function(__dirname) {\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Koa = __webpack_require__(/*! koa */ \"koa\");\nconst serve = __webpack_require__(/*! koa-static */ \"koa-static\");\nconst ms = __webpack_require__(/*! ms */ \"ms\");\n__webpack_require__(/*! reflect-metadata */ \"reflect-metadata\");\nconst routing_controllers_1 = __webpack_require__(/*! routing-controllers */ \"routing-controllers\");\nconst config_1 = __webpack_require__(/*! ./config */ \"./src/http/config/index.ts\");\nconst createHttpServer = async () => {\n    const koa = new Koa();\n    koa.use(serve(__dirname + \"/../page/dist\", {\n        maxAge: config_1.default.NAME === \"production\" ? ms(\"20d\") : 0,\n    }));\n    routing_controllers_1.useKoaServer(koa, {\n        routePrefix: \"/api\",\n        controllers: [],\n        classTransformer: false,\n    });\n    return koa;\n};\nexports.default = createHttpServer;\n\n/* WEBPACK VAR INJECTION */}.call(this, \"src/http\"))\n\n//# sourceURL=webpack:///./src/http/app.ts?");
 
 /***/ }),
 
@@ -106,7 +106,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.default = {\n    name: \"development\",\n    PORT: 9998,\n};\n\n\n//# sourceURL=webpack:///./src/http/config/config.dev.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.default = {\n    NAME: \"development\",\n    PORT: 9998,\n};\n\n\n//# sourceURL=webpack:///./src/http/config/config.dev.ts?");
 
 /***/ }),
 
@@ -118,7 +118,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexport
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.default = {\n    name: \"production\",\n    PORT: 9999,\n};\n\n\n//# sourceURL=webpack:///./src/http/config/config.prod.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.default = {\n    NAME: \"production\",\n    PORT: 9999,\n};\n\n\n//# sourceURL=webpack:///./src/http/config/config.prod.ts?");
 
 /***/ }),
 
@@ -166,6 +166,28 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"koa\");\n\n//# sourceURL=webpack:///external_%22koa%22?");
+
+/***/ }),
+
+/***/ "koa-static":
+/*!*****************************!*\
+  !*** external "koa-static" ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"koa-static\");\n\n//# sourceURL=webpack:///external_%22koa-static%22?");
+
+/***/ }),
+
+/***/ "ms":
+/*!*********************!*\
+  !*** external "ms" ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"ms\");\n\n//# sourceURL=webpack:///external_%22ms%22?");
 
 /***/ }),
 

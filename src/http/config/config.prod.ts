@@ -1,4 +1,4 @@
 export default {
-    name: "production",
+    NAME: "production",
     PORT: 9999,
 };
