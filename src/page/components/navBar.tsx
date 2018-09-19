@@ -49,7 +49,7 @@ class NavBar extends React.Component<{ classes: any, notificationNum?: number, o
     public render() {
         const { classes, notificationNum = 0, open, onDrawerOpen } = this.props;
         return (
-            <AppBar position="absolute" color="inherit" className={classNames(classes.appBar, open && classes.appBarShift)}>
+            <AppBar position="absolute" color="primary" className={classNames(classes.appBar, open && classes.appBarShift)}>
                 <Toolbar disableGutters={!open}>
                     <IconButton color="inherit" aria-label="Menu" className={classNames(classes.menuButton, open && classes.hide)} onClick={onDrawerOpen}>
                         <MenuIcon />
@@ -57,7 +57,7 @@ class NavBar extends React.Component<{ classes: any, notificationNum?: number, o
                     <Typography variant="title" color="inherit" className={classes.grow}>
                         Awesome Spider
                         </Typography>
-                    <IconButton >
+                    <IconButton color="inherit">
                         <Badge badgeContent={notificationNum} color="secondary">
                             <NotificationsIcon />
                         </Badge>
